@@ -36,6 +36,10 @@ export class DeviceCommonService implements DeviceCommonInterface {
       });
   }
 
+  switchToSetting(): Promise<any> {
+    return this.diagnostic.switchToSettings();
+  }
+
 
   private isCordova(): boolean {
     return this._isCordova;

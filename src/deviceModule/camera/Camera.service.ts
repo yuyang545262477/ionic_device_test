@@ -39,4 +39,8 @@ export class CameraService implements CameraInterface {
         return 'data:image/jpeg;base64,' + dataUrl;
       })
   }
+
+  switchToSetting(): Promise<any> {
+    return this.common.switchToSetting();
+  }
 }

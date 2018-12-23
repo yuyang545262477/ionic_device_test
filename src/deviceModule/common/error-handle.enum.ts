@@ -1,6 +1,6 @@
 export enum ErrorHandleEnum {
   isNotCordova = "is not cordova",
-  permissionDefined = "permissionDefined",
+  permissionDefined = "permission Defined",
   noPremission = "without permission"
 }
 
