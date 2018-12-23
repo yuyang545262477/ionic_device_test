@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {DeviceCommonInterface} from "./device-common.interface";
 import {Platform} from "ionic-angular";
-import {DeviceErrorHandle} from "./device-error.handle";
+import {ErrorHandleEnum} from "./error-handle.enum";
 import {Diagnostic} from "@ionic-native/diagnostic";
+import {PermissionStatusEnum} from "./permission-status.enum";
 
 
 @Injectable()
@@ -18,19 +19,22 @@ export class DeviceCommonService implements DeviceCommonInterface {
     this._isIos = this.platform.is("ios");
   }
 
-  readyCamera(): Promise<boolean | DeviceErrorHandle> {
-    if (!this.isCordova()) return Promise.reject(DeviceErrorHandle.isNotCordova);
-    return this.diagnostic.isCameraAuthorized()
-      .then((state: boolean) => {
-        return state ? Promise.resolve(true) : this.diagnostic.requestCameraAuthorization();
+  readyCamera(): Promise<ErrorHandleEnum | PermissionStatusEnum> {
+    if (!this.isCordova()) return Promise.reject(ErrorHandleEnum.isNotCordova);
+    return this.diagnostic.getCameraAuthorizationStatus(true)
+      .then((permissionStatus_1: PermissionStatusEnum) => {
+        console.log("1 is " + permissionStatus_1);
+        return permissionStatus_1 == PermissionStatusEnum.GRANTED ?
+          Promise.resolve(permissionStatus_1) :
+          this.diagnostic.requestRuntimePermission(this.diagnostic.permission.CAMERA);
       })
-      .then((state: boolean) => {
-        console.log("state is " + state);
-        return state ? Promise.resolve(true) : Promise.reject(DeviceErrorHandle.permissionDefined);
+      .then((permissionStatus_2: PermissionStatusEnum) => {
+        console.log("2 is " + permissionStatus_2);
+        return permissionStatus_2 == PermissionStatusEnum.GRANTED ?
+          Promise.resolve(permissionStatus_2) :
+          Promise.reject(ErrorHandleEnum.permissionDefined);
       });
   }
-
-
 
 
   private isCordova(): boolean {

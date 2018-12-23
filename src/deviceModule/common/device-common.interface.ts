@@ -1,9 +1,8 @@
-import {DeviceErrorHandle} from "./device-error.handle";
+import {ErrorHandleEnum} from "./error-handle.enum";
+import {PermissionStatusEnum} from "./permission-status.enum";
 
 export interface DeviceCommonInterface {
-
-
-  readyCamera(): Promise<boolean | DeviceErrorHandle>;
+  readyCamera(): Promise<ErrorHandleEnum | PermissionStatusEnum>;
 
 
 }

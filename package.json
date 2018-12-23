@@ -9,6 +9,7 @@
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
+    "rebuild android": "ionic cordova platform remove android && ionic cordova platform add android",
     "watch Devices": "ionic cordova run android --device -l -c --address=192.168.0.8"
   },
   "dependencies": {

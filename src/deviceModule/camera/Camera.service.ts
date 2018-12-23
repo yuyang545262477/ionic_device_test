@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {CameraInterface} from "./camera.interface";
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {DeviceCommonService} from "../common/device-common.service";
-import {DeviceErrorHandle} from "../common/device-error.handle";
+import {ErrorHandleEnum} from "../common/error-handle.enum";
 
 @Injectable()
 export class CameraService implements CameraInterface {
@@ -18,7 +18,7 @@ export class CameraService implements CameraInterface {
     };
   }
 
-  getPictureFromLibrary(): Promise<string | DeviceErrorHandle> {
+  getPictureFromLibrary(): Promise<string | ErrorHandleEnum> {
     const libraryOptions: CameraOptions = Object.assign(this.cameraOptions, {sourceType: this.camera.PictureSourceType.PHOTOLIBRARY});
     return this.common.readyCamera()
       .then(() => {
@@ -29,7 +29,7 @@ export class CameraService implements CameraInterface {
       });
   }
 
-  getPictureFromCamera(): Promise<string | DeviceErrorHandle> {
+  getPictureFromCamera(): Promise<string | ErrorHandleEnum> {
     const cameraOptions: CameraOptions = Object.assign(this.cameraOptions, {sourceType: this.camera.PictureSourceType.CAMERA});
     return this.common.readyCamera()
       .then(() => {
