@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component} from "@angular/core";
+import {IonicPage, NavController} from "ionic-angular";
+import {DeviceCommonService} from "../../deviceModule/common/device-common.service";
 
 class HomeRoute {
   name: string;
@@ -7,7 +8,7 @@ class HomeRoute {
 
   constructor(title: string) {
     this.name = title;
-    this.path = `${title}Page`
+    this.path = `${title}Page`;
   }
 }
 
@@ -20,19 +21,20 @@ class HomeRoute {
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: "page-home",
+  templateUrl: "home.html",
 })
 export class HomePage {
-  titles: string[] = ['Camera', 'Audio', 'Geolocation', 'Network', 'SecureFile', 'Media'];
+  titles: string[] = ["Camera", "Audio", "Geolocation", "Network", "SecureFile", "Media"];
   homeRoutes: HomeRoute[] = [];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              private commonService: DeviceCommonService) {
     this.homeRoutes = this.renderHomeRoutes(this.titles);
   }
 
   goPage(path?: string) {
-    this.navCtrl.push(path)
+    this.navCtrl.push(path);
   }
 
   private renderHomeRoutes(titles: string[]): HomeRoute[] {
@@ -45,5 +47,8 @@ export class HomePage {
   }
 
 
+  goToSetting() {
+    this.commonService.switchToSetting();
+  }
 }
 
