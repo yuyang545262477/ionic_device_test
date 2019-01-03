@@ -15,7 +15,6 @@ export class DeviceCommonService implements DeviceCommonInterface {
 
   private state_1: string = "[permission_1]->";
   private state_2: string = "[permission_2]->";
-  private state_3: string = "[permission_3]->";
 
   constructor(private platform: Platform,
               private diagnostic: Diagnostic) {
@@ -41,18 +40,6 @@ export class DeviceCommonService implements DeviceCommonInterface {
       });
   }
 
-  switchToSetting(): Promise<any> {
-    return this.diagnostic.switchToSettings();
-  }
-
-  switchToWifiSetting(): void {
-    return this.diagnostic.switchToWifiSettings();
-  }
-
-  private isCordova(): boolean {
-    return this._isCordova;
-  }
-
   readyGeolocationPermission(): Promise<void | ErrorHandleEnum> {
     return this.diagnostic.getLocationAuthorizationStatus()
       .then((permission_1: PermissionStatusEnum) => {
@@ -72,5 +59,38 @@ export class DeviceCommonService implements DeviceCommonInterface {
           Promise.resolve() :
           Promise.reject(ErrorHandleEnum.permissionDefined);
       });
+  }
+
+  readyContactsPermission(): Promise<void | ErrorHandleEnum> {
+    return this.diagnostic.getContactsAuthorizationStatus()
+      .then((permission_1: PermissionStatusEnum) => {
+        console.log(this.state_1 + permission_1);
+        return permission_1 === PermissionStatusEnum.GRANTED ?
+          Promise.resolve() :
+          this.diagnostic.requestRuntimePermissions([
+            this.diagnostic.permission.WRITE_CONTACTS,
+            this.diagnostic.permission.READ_CONTACTS,
+          ]);
+      })
+      .then((permission_2: void | PermissionTypes) => {
+        if (!permission_2) return Promise.resolve();
+        console.log(this.state_2);
+        console.table(permission_2);
+        return permission_2.READ_CONTACTS === PermissionStatusEnum.GRANTED && permission_2.WRITE_CONTACTS === PermissionStatusEnum.GRANTED ?
+          Promise.resolve() :
+          Promise.reject(ErrorHandleEnum.permissionDefined);
+      });
+  }
+
+  switchToSetting(): Promise<any> {
+    return this.diagnostic.switchToSettings();
+  }
+
+  switchToWifiSetting(): void {
+    return this.diagnostic.switchToWifiSettings();
+  }
+
+  private isCordova(): boolean {
+    return this._isCordova;
   }
 }

@@ -6,6 +6,8 @@ export interface DeviceCommonInterface {
 
   readyGeolocationPermission(): Promise<void | ErrorHandleEnum>;
 
+  readyContactsPermission(): Promise<void | ErrorHandleEnum>;
+
   switchToWifiSetting(): void;
 
   switchToSetting(): Promise<string>

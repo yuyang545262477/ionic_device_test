@@ -10,7 +10,7 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "rebuild android": "ionic cordova platform remove android && ionic cordova platform add android",
-    "watch Devices": "ionic cordova run android --device -l -c --address=192.168.1.106 --prod"
+    "watch Devices": "ionic cordova run android --device -l -c --address=192.168.1.106 "
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
@@ -23,6 +23,7 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/camera": "^4.18.0",
+    "@ionic-native/contacts": "^4.18.0",
     "@ionic-native/core": "~4.18.0",
     "@ionic-native/diagnostic": "^4.18.0",
     "@ionic-native/geolocation": "^4.18.0",
@@ -32,6 +33,7 @@
     "@ionic/storage": "2.2.0",
     "cordova-android": "7.1.4",
     "cordova-plugin-camera": "^4.0.3",
+    "cordova-plugin-contacts": "3.0.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
@@ -65,7 +67,8 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova.plugins.diagnostic": {},
       "cordova-plugin-network-information": {},
-      "cordova-plugin-geolocation": {}
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-contacts": {}
     },
     "platforms": [
       "android"

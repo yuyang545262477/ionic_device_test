@@ -25,7 +25,7 @@ class HomeRoute {
   templateUrl: "home.html",
 })
 export class HomePage {
-  titles: string[] = ["Camera", "Audio", "Geolocation", "Network", "SecureFile", "Media"];
+  titles: string[] = ["Camera", "Audio", "Geolocation", "Network", "SecureFile", "Media", "Contact"];
   homeRoutes: HomeRoute[] = [];
 
   constructor(public navCtrl: NavController,

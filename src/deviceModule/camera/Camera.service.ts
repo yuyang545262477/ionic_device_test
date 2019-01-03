@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {CameraInterface} from "./camera.interface";
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {DeviceCommonService} from "../common/device-common.service";
@@ -22,10 +22,10 @@ export class CameraService implements CameraInterface {
     const libraryOptions: CameraOptions = Object.assign(this.cameraOptions, {sourceType: this.camera.PictureSourceType.PHOTOLIBRARY});
     return this.common.readyCamera()
       .then(() => {
-        return this.camera.getPicture(libraryOptions)
+        return this.camera.getPicture(libraryOptions);
       })
       .then((dataUrl: string) => {
-        return 'data:image/jpeg;base64,' + dataUrl;
+        return "data:image/jpeg;base64," + dataUrl;
       });
   }
 
@@ -36,8 +36,8 @@ export class CameraService implements CameraInterface {
         return this.camera.getPicture(cameraOptions);
       })
       .then((dataUrl: string) => {
-        return 'data:image/jpeg;base64,' + dataUrl;
-      })
+        return "data:image/jpeg;base64," + dataUrl;
+      });
   }
 
   switchToSetting(): Promise<any> {
