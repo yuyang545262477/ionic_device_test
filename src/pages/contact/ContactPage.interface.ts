@@ -1,5 +1,5 @@
 export interface ContactPageInterface {
-  GotContactsInfo(): void;
+    GotContactsInfo(): void;
 
-  switchToSetting(): void;
+    switchToSetting(): void;
 }

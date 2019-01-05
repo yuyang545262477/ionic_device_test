@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { AudioPage } from './audio';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {AudioPage} from './audio';
 
 @NgModule({
-  declarations: [
-    AudioPage,
-  ],
-  imports: [
-    IonicPageModule.forChild(AudioPage),
-  ],
+    declarations: [
+        AudioPage,
+    ],
+    imports: [
+        IonicPageModule.forChild(AudioPage),
+    ],
 })
-export class AudioPageModule {}
+export class AudioPageModule {
+}

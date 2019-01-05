@@ -6,50 +6,50 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>network</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>network</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-row>
-    <ion-col>
-      <button ion-button (click)=getCurrentPosition()>getCurrentPosition</button>
-    </ion-col>
-    <ion-col>
-      <p>{{getStates}}</p>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col>
+            <button ion-button (click)=getCurrentPosition()>getCurrentPosition</button>
+        </ion-col>
+        <ion-col>
+            <p>{{getStates}}</p>
+        </ion-col>
+    </ion-row>
 
-  <ion-row>
-    <ion-col col-3="">
-      <button ion-button (click)="watchPosition()">watchPosition</button>
-    </ion-col>
-    <ion-col col-3="">
-      <button ion-button (click)="stopWatchPosition()">stopWatching</button>
-    </ion-col>
-    <ion-col>{{watchStates}}</ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col col-3="">
+            <button ion-button (click)="watchPosition()">watchPosition</button>
+        </ion-col>
+        <ion-col col-3="">
+            <button ion-button (click)="stopWatchPosition()">stopWatching</button>
+        </ion-col>
+        <ion-col>{{watchStates}}</ion-col>
+    </ion-row>
 
-  <ion-row>
-    <ion-list *ngIf="_position">
-      <ion-list-header>position:Result</ion-list-header>
-      <ion-item>accuracy {{_position.coords.accuracy}}</ion-item>
-      <ion-item>altitude {{_position.coords.altitude}}</ion-item>
-      <ion-item>altitudeAccuracy {{_position.coords.altitudeAccuracy}}</ion-item>
-      <ion-item>heading {{_position.coords.heading}}</ion-item>
-      <ion-item>latitude {{_position.coords.latitude}}</ion-item>
-      <ion-item>longitude {{_position.coords.longitude}}</ion-item>
-      <ion-item>speed {{_position.coords.speed}}</ion-item>
-      <ion-item>timestamp {{_position.timestamp}}</ion-item>
-    </ion-list>
-  </ion-row>
+    <ion-row>
+        <ion-list *ngIf="_position">
+            <ion-list-header>position:Result</ion-list-header>
+            <ion-item>accuracy {{_position.coords.accuracy}}</ion-item>
+            <ion-item>altitude {{_position.coords.altitude}}</ion-item>
+            <ion-item>altitudeAccuracy {{_position.coords.altitudeAccuracy}}</ion-item>
+            <ion-item>heading {{_position.coords.heading}}</ion-item>
+            <ion-item>latitude {{_position.coords.latitude}}</ion-item>
+            <ion-item>longitude {{_position.coords.longitude}}</ion-item>
+            <ion-item>speed {{_position.coords.speed}}</ion-item>
+            <ion-item>timestamp {{_position.timestamp}}</ion-item>
+        </ion-list>
+    </ion-row>
 
-  <ion-row>
-    <ion-col>
-      <p>错误发生: {{_errorString}}</p>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col>
+            <p>错误发生: {{_errorString}}</p>
+        </ion-col>
+    </ion-row>
 </ion-content>

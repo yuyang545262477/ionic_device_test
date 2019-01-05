@@ -1,8 +1,8 @@
 export interface CameraInterface {
 
-  getPictureFromCamera();
+    getPictureFromCamera();
 
-  getPictureFromLibrary();
+    getPictureFromLibrary();
 
-  switchToSetting(): Promise<string>;
+    switchToSetting(): Promise<string>;
 }

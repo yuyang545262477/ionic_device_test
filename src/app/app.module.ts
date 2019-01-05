@@ -9,23 +9,23 @@ import {DeviceModule} from "../deviceModule/device.module.";
 const commonPage = [MyApp];
 
 @NgModule({
-  declarations: [
-    ...commonPage,
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    DeviceModule,
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    ...commonPage,
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-  ],
+    declarations: [
+        ...commonPage,
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp),
+        DeviceModule,
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        ...commonPage,
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ],
 })
 export class AppModule {
 }

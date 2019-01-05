@@ -6,23 +6,23 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>home</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-row *ngFor="let homeItem of homeRoutes">
-    <ion-col>
-      <button ion-button (click)="goPage(homeItem.path)">{{homeItem.name}}</button>
-    </ion-col>
-  </ion-row>
+    <ion-row *ngFor="let homeItem of homeRoutes">
+        <ion-col>
+            <button ion-button (click)="goPage(homeItem.path)">{{homeItem.name}}</button>
+        </ion-col>
+    </ion-row>
 
-  <ion-row>
-    <ion-col>
-      <button ion-button color="pink" (click)="goToSetting()">goToSetting</button>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col>
+            <button ion-button color="pink" (click)="goToSetting()">goToSetting</button>
+        </ion-col>
+    </ion-row>
 </ion-content>

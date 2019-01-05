@@ -1,4 +1,4 @@
 export class ContactModel {
-  UserName: string;
-  PhoneNumber: number;
+    UserName: string;
+    PhoneNumber: number;
 }

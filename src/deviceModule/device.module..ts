@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {DeviceCommonService} from "./common/device-common.service";
+import {DevicePermissionService} from "./permission/device-permission.service";
 import {Camera} from "@ionic-native/camera";
 import {CameraService} from "./camera/Camera.service";
 import {Diagnostic} from "@ionic-native/diagnostic";
@@ -9,15 +9,17 @@ import {Geolocation} from "@ionic-native/geolocation";
 import {GeolocationService} from "./geolocation/geolocation.service";
 import {Contacts} from "@ionic-native/contacts";
 import {ContactsService} from "./contacts/contacts.service.";
+import {DeviceSettingService} from "./device-setting/device-setting.service";
 
 @NgModule({
-  imports: [],
-  exports: [],
-  declarations: [],
-  providers: [
-    Diagnostic, Camera, Network, Geolocation, Contacts,
-    DeviceCommonService, CameraService, NetworkService, GeolocationService, ContactsService,
-  ],
+    imports: [],
+    exports: [],
+    declarations: [],
+    providers: [
+        Diagnostic, Camera, Network, Geolocation, Contacts,
+        DeviceSettingService,
+        DevicePermissionService, CameraService, NetworkService, GeolocationService, ContactsService,
+    ],
 })
 export class DeviceModule {
 }

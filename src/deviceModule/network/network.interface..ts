@@ -3,17 +3,17 @@ import {ConnectionType} from "./connection.type";
 
 export interface NetworkInterface {
 
-  getType(): string;
+    getType(): string;
 
-  getDownLinkMax(): string;
+    getDownLinkMax(): string;
 
-  getConnection(): ConnectionType;
+    getConnection(): ConnectionType;
 
-  watchChange(): Observable<any>;
+    watchChange(): Observable<any>;
 
-  watchConnected(): Observable<any>;
+    watchConnected(): Observable<any>;
 
-  watchDisconnected(): Observable<any>;
+    watchDisconnected(): Observable<any>;
 
-  switchToWifiSetting(): void;
+    switchToWifiSetting(): void;
 }
