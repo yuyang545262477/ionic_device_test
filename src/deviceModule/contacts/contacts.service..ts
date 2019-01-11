@@ -7,24 +7,24 @@ import {DeviceSettingService} from "../device-setting/device-setting.service";
 @Injectable()
 export class ContactsService implements ContactsInterface {
 
-    constructor(private contacts: Contacts,
-                private settingService: DeviceSettingService,
-                private commonService: DevicePermissionService) {
-    }
+  constructor(private contacts: Contacts,
+              private settingService: DeviceSettingService,
+              private commonService: DevicePermissionService) {
+  }
 
 
-    gotContacts(): Promise<Contact[]> {
-        return this.commonService.readyContactsPermission()
-            .then(() => {
-                return this.contacts.find(
-                    ["displayName", "phoneNumbers", "photos"],
-                    {multiple: true, hasPhoneNumber: true});
-            });
-    }
+  gotContacts(): Promise<Contact[]> {
+    return this.commonService.readyContactsPermission()
+      .then(() => {
+        return this.contacts.find(
+          ["displayName", "phoneNumbers", "photos"],
+          {multiple: true, hasPhoneNumber: true});
+      });
+  }
 
-    goToSetting(): Promise<boolean> {
-        return this.settingService.switchToSettings();
-    }
+  goToSetting(): Promise<boolean> {
+    return this.settingService.switchToSettings();
+  }
 
 
 }

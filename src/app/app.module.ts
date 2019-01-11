@@ -5,27 +5,33 @@ import {SplashScreen} from "@ionic-native/splash-screen";
 import {StatusBar} from "@ionic-native/status-bar";
 import {MyApp} from "./app.component";
 import {DeviceModule} from "../deviceModule/device.module.";
+import {IonicStorageModule} from "@ionic/storage";
+import {LongPressModule} from "ionic-long-press";
+import {HomePageModule} from "../pages/home/home.module";
 
 const commonPage = [MyApp];
 
 @NgModule({
-    declarations: [
-        ...commonPage,
-    ],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(MyApp),
-        DeviceModule,
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        ...commonPage,
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ],
+  declarations: [
+    ...commonPage,
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    DeviceModule,
+    LongPressModule,
+    HomePageModule,
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    ...commonPage,
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+  ],
 })
 export class AppModule {
 }

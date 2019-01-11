@@ -6,13 +6,31 @@
 -->
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>audio</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>audio</ion-title>
+  </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
+  <ion-row>
+    <ion-col>
+      <button
+        ion-button full
+        ion-long-press interval="390" (onPressing)="recording()" (onPressStart)="recordStart()"
+        (onPressEnd)="recordingEnd()">长按录制
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list *ngFor="let file of files">
+    <ion-item>
+      fileName is  {{file}}
+      <ion-col>
+        <button ion-button (click)="playAudio(file)">播放</button>
+      </ion-col>
+    </ion-item>
+  </ion-list>
 </ion-content>
